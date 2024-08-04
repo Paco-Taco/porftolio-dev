@@ -1,0 +1,34 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const experiences = [
+  {
+    date: "Actualmente...",
+    title: "Estudiante/Desarrollador Web Junior - Logística Woodward S.C.",
+    description:
+      "Trabajando en la creación de herramientas web de uso interno orientadas al consumo de información y estadísticas, mejorando notablemente la experiencia del cliente.",
+  },
+  {
+    date: "Febrero 2024",
+    title: "Trainee - Logística Woodward S.C.",
+    description:
+      "Practicante en la división de Tecnologías de la Información, utilizando diferentes herramientas y lenguajes de programación",
+  },
+  {
+    date: "Agosto 2022",
+    title: "Estudiante de Ingeniería de Software - Universidad De Colima.",
+    description:
+      "Mi aventura comienza",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+  {
+    experiences.map((exp) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...exp} />
+      </li>
+    ))
+  } 
+</ol>

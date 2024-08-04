@@ -1,20 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+// Components
 import Badge from "../components/Badge.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+
+// Icons;
 import LinkedIn from "../components/icons/LinkedIn.astro";
 import SocialPill from "../components/SocialPill.astro";
 import Mail from "../components/icons/Mail.astro";
 import GitHub from "../components/icons/GitHub.astro";
+
+// Other
 import { calcXp } from "../utils";
 import { githubUrl, linkedinUrl, mailTo } from "../../public/links";
+import Briefcase from "../components/icons/Briefcase.astro";
 
 const fechaInicio = "2022-09-01";
 const tiempoExperiencia = calcXp(fechaInicio);
 ---
 
-<Layout title="Portfolio de Francisco" description="Contrata a midude para crear tu aplicación web o móvil. Desarrollador Web y Creador de Contenido. Especializado en crear aplicaciones">
+<Layout
+  title="Portfolio de Francisco"
+  description="Contrátame para crear tu aplicación en la web. Estudiante de Ingeniería de Software. Especializado en el desarrollo Full-Stack"
+>
   <main>
-    <section class="w-full mx-auto lg:w-[740px] py-44">
+    <SectionContainer class="pt-44 pb-24">
       <img
         src="/img/yomoto.jpeg"
         alt="paco photo"
@@ -33,18 +45,17 @@ const tiempoExperiencia = calcXp(fechaInicio);
         </div>
       </h1>
       <h2 class="text-2xl text-wrap">
-        <span>+{tiempoExperiencia} años de experiencia.</span>
-        <span class=""> Desarrollador Web.</span>
-        <span class="">De Colima, México 🇲🇽.</span>
-        Especializado en crear aplicaciones
+        +{tiempoExperiencia} años desarrollando. Estudiante de Ingeniería de Software.
+        <br />
+        De Colima, México 🇲🇽. Especializado en crear aplicaciones
         <span
           class="bg-gradient-to-r
 		  from-blue-600
 		  via-green-500
 		  to-indigo-400
 			inline-block text-transparent bg-clip-text"
-          >deslumbrantes</span
-        >.
+          >deslumbrantes.</span
+        >
       </h2>
 
       <nav class="flex gap-x-4 mt-4">
@@ -61,6 +72,14 @@ const tiempoExperiencia = calcXp(fechaInicio);
           francisco.rod2726@gmail.com
         </SocialPill>
       </nav>
-    </section>
+    </SectionContainer>
+
+    <SectionContainer id="experience">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+        <Briefcase class="size-7" />
+        Experiencia laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
   </main>
 </Layout>
