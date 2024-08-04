@@ -1,11 +1,66 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
+import SocialPill from "../components/SocialPill.astro";
+import Mail from "../components/icons/Mail.astro";
+import GitHub from "../components/icons/GitHub.astro";
+import { calcXp } from "../utils";
+import { githubUrl, linkedinUrl, mailTo } from "../../public/links";
+
+const fechaInicio = "2022-09-01";
+const tiempoExperiencia = calcXp(fechaInicio);
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Portfolio</h1>
-	</main>
-</Layout>
+<Layout title="Portfolio de Francisco" description="Contrata a midude para crear tu aplicación web o móvil. Desarrollador Web y Creador de Contenido. Especializado en crear aplicaciones">
+  <main>
+    <section class="w-full mx-auto lg:w-[740px] py-44">
+      <img
+        src="/img/yomoto.jpeg"
+        alt="paco photo"
+        class="rounded-full size-12 mb-4"
+      />
 
+      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
+        Hey! Soy Paco <div class="flex justify-center items-center">
+          <a
+            href={linkedinUrl}
+            target="_blank"
+            class="flex justify-center items-center"
+          >
+            <Badge>Disponible para trabajar</Badge>
+          </a>
+        </div>
+      </h1>
+      <h2 class="text-2xl text-wrap">
+        <span>+{tiempoExperiencia} años de experiencia.</span>
+        <span class=""> Desarrollador Web.</span>
+        <span class="">De Colima, México 🇲🇽.</span>
+        Especializado en crear aplicaciones
+        <span
+          class="bg-gradient-to-r
+		  from-blue-600
+		  via-green-500
+		  to-indigo-400
+			inline-block text-transparent bg-clip-text"
+          >deslumbrantes</span
+        >.
+      </h2>
+
+      <nav class="flex gap-x-4 mt-4">
+        <SocialPill url={linkedinUrl}>
+          <LinkedIn class="size-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill url={githubUrl}>
+          <GitHub class="size-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill url={mailTo}>
+          <Mail class="size-6" />
+          francisco.rod2726@gmail.com
+        </SocialPill>
+      </nav>
+    </section>
+  </main>
+</Layout>
