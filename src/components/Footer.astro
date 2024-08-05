@@ -1,3 +1,26 @@
-<footer class="py-20">
-    Footeererereree
+---
+import { githubUrl } from "../../public/links";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="shadow dark:bg-gray-900 m-4">
+  <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+    <hr class="my-6 border-white/50 sm:mx-auto lg:my-8" />
+    <span class="block text-sm text-white/80 text-center dark:text-gray-400"
+      >© {currentYear}
+      Desarrollado por Franciso Rodríguez, aka
+      <a
+        href={githubUrl}
+        class="hover:underline"
+        rel="noopener noreferrer"
+        target="_blank">Paco-Taco</a
+      >. <br /> Con la inspiración de <a
+        href="https://github.com/midudev"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="hover:underline">midudev</a
+      >.
+    </span>
+  </div>
 </footer>

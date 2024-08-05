@@ -40,13 +40,14 @@ const { title, description } = Astro.props;
     font-family: "Onest Variable", system-ui, sans-serif;
     scroll-behavior: smooth;
   }
-
+  
   body {
     display: flex;
     flex-direction: column;
     background: #050505;
     min-height: 100vh;
-    position: relative;
+    position: absolute;
+    min-width: 100%;
   }
   s @media (prefers-reduced-motion: reduce) {
     html {
