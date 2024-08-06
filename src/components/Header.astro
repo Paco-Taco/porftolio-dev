@@ -1,5 +1,6 @@
 ---
 import HamburgerMenu from "./icons/HamburgerMenu.astro";
+import NavItem from "./NavItem.astro";
 ---
 
 <header
@@ -18,11 +19,11 @@ import HamburgerMenu from "./icons/HamburgerMenu.astro";
       <div
         class="flex flex-col gap-16 mt-10 sm:flex-row text-center text-lg sm:items-center sm:justify-center sm:mt-0 sm:ps-5"
       >
-        <a href="#top">Inicio</a>
-        <a href="#experience">Experiencia</a>
-        <a href="#projects">Proyectos</a>
-        <a href="#about">Sobre mí</a>
-        <a href="#contact">Contacto</a>
+        <NavItem href="#top">Inicio</NavItem>
+        <NavItem href="#experience">Experiencia</NavItem>
+        <NavItem href="#projects">Proyectos</NavItem>
+        <NavItem href="#about">Sobre mí</NavItem>
+        <NavItem href="#contact">Contacto</NavItem>
       </div>
     </div>
   </nav>
