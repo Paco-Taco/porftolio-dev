@@ -1,6 +1,10 @@
 ---
+import GitHub from "./icons/GitHub.astro";
 import Python from "./icons/Python.astro";
 import React from "./icons/React.astro";
+import Link from "./icons/Link.astro";
+
+import LinkButton from "./LinkButton.astro";
 
 const tags = {
   python: {
@@ -23,32 +27,61 @@ const projects = [
       "Dolor consectetur dolore duis enim ex. Eiusmod elit cupidatat sunt non ea esse sit. Dolore deserunt laboris aute est nisi reprehenderit quis elit tempor. Quis esse occaecat ad commodo nisi irure aliqua incididunt nostrud voluptate id anim elit non. Adipisicing amet ut id fugiat dolore in dolore commodo mollit nostrud eiusmod aliqua proident.",
     link: "https://github.com/Paco-Taco/LilParrotOdy-Sea",
     github: "https://github.com/Paco-Taco/LilParrotOdy-Sea",
-    image: "/img/projects/lilparrot.webp",
+    image: "/img/projects/nplm.webp",
     tags: [tags.python, tags.react],
-  }, 
+  },
 ];
 ---
 
-{
-  projects.map(({ title, description, tags, image }) => (
-    <article>
-      <h3 class="text-2xl font-semibold text-greenEmerald mb-2">{title}</h3>
-      <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul class="flex gap-x-2  flex-row mb-4 ">
-        {tags.map((tag) => (
-          <li>
-            <span class={`flex gap-x-2 rounded-full text-xs py-1 px-2 ${tag.class}`}>
-              <tag.icon class="size-4" /> {tag.name}
-            </span>
-          </li>
-        ))}
-      </ul>
+<div class="flex flex-col gap-y-16">
+  {
+    projects.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-6 gap-8 transition duration-500 ease-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              src={image}
+              alt="Alch no sé"
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        </div>
 
-      <img
-        class="rounded shadow-2xl shadow-white/10"
-        src={image}
-        alt={`Captura de pantalla del proyecto ${title}`}
-      />
-    </article>
-  ))
-}
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-100">{title}</h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 text-gray-400">{description}</div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>
