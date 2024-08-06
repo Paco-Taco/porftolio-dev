@@ -1,10 +1,89 @@
-<header class="flex justify-center items-center py-5 xl:w-[1120px] w-full  mx-auto" >
+---
+import HamburgerMenu from "./icons/HamburgerMenu.astro";
+---
 
-  <nav class="flex flex-row gap-x-10 opacity-80">
-    <a href="#top">Inicio</a>
-    <a href="#experience">Experiencia</a>
-    <a href="#projects">Proyectos</a>
-    <a href="#about">Sobre mí</a>
-    <a href="#contact">Contacto</a>
+<header
+  class="flex flex-wrap lg:justify-center md:justify-center sm:justify-start sm:flex-nowrap justify-center items-center py-6 w-full mx-auto"
+>
+  <nav
+    id="nav"
+    class="flex flex-row flex-wrap fixed z-30 gap-x-10 w-full h-12 py-16 sm:items-center justify-center bg-gradient-to-b lg:bg-gradient-to-b from-black from-30% md:from-5% via-black/20 via-80% to-transparent to-95%"
+  >
+    <div class="sm:hidden">
+      <button type="button" id="hamburger-button" aria-expanded="false">
+        <HamburgerMenu />
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden basis-full grow sm:block w-full">
+      <div
+        class="flex flex-col gap-16 mt-10 sm:flex-row text-center text-lg sm:items-center sm:justify-center sm:mt-0 sm:ps-5"
+      >
+        <a href="#top">Inicio</a>
+        <a href="#experience">Experiencia</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#about">Sobre mí</a>
+        <a href="#contact">Contacto</a>
+      </div>
+    </div>
   </nav>
 </header>
+
+<style>
+  .nav-open {
+    background-color: black;
+    background-image: none;
+  }
+
+  @media (min-width: 640px) {
+    .nav-open {
+      background-color: transparent;
+    }
+
+  }
+
+  #mobile-menu.block {
+    background-color: black;
+    height: 100vh;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerButton = document.getElementById("hamburger-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const nav = document.getElementById("nav");
+    const menuLinks = mobileMenu?.querySelectorAll("a");
+
+    const closeMenu = () => {
+      mobileMenu?.classList.add('hidden')
+      mobileMenu?.classList.remove('block')
+      nav?.classList.remove('nav-open')
+      hamburgerButton?.setAttribute('aria-expanded', 'true')
+    }
+
+    const openMenu = () => {
+      mobileMenu?.classList.remove('hidden')
+      mobileMenu?.classList.add('block')
+      nav?.classList.add('nav-open')
+      hamburgerButton?.setAttribute('aria-expanded', 'true')
+    }
+
+    hamburgerButton?.addEventListener('click', () => {
+      if (mobileMenu?.classList.contains('hidden')) {
+        openMenu() 
+      } else {
+        closeMenu()
+      }
+    })
+
+    menuLinks?.forEach((link) => {
+      link.addEventListener('click', closeMenu)
+    })
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 640) {
+        closeMenu()
+      }
+    })
+  });
+</script>
