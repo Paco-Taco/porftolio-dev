@@ -8,7 +8,7 @@ export default {
         greenEmerald: "#6ef3ab",
       },
       dropShadow: {
-        navItem: '0px 0px 4px #000000'
+        navItem: '0px 0px 2px #000000'
       },
     },
   },

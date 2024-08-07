@@ -7,11 +7,14 @@ import Mongo from "./icons/Mongo.astro";
 import Firebase from "./icons/Firebase.astro";
 
 import LinkButton from "./LinkButton.astro";
+import MySql from "./icons/MySql.astro";
+import Php from "./icons/Php.astro";
+import Jquery from "./icons/Jquery.astro";
 
 const tags = {
   python: {
     name: "Python",
-    class: "bg-black text-white",
+    class: "bg-gray-900 text-white",
     icon: Python,
   },
 
@@ -32,34 +35,61 @@ const tags = {
     class: 'bg-orange-500/20 text-white/85',
     icon: Firebase,
   },
+
+  mysql: {
+    name: 'MySQL',
+    class: 'bg-white/75 text-orange-600/80',
+    icon: MySql,
+  },
+
+  php: {
+    name: 'PHP',
+    class: 'bg-purple-500/30 text-white/85',
+    icon: Php,
+  },
+
+  jquery: {
+    name: 'JQuery',
+    class: 'bg-teal-700/20 text-white/85',
+    icon: Jquery,
+  }
 };
 
 const projects = [
   {
-    title: "Li'l Parrot: OdySea - Un juego donde te diviertes y salvas al mundo",
-    description:
-      "Li'l Parrot: OdySea es un RPG donde explorarás y terminarás con los restos de basura encontrados en el ambiente. Basado en el 14vo Objetivo de Desarrollo Sustentable de las Naciones Unidas ¡Serás sumergido en una aventura única!",
-    link: "https://github.com/Paco-Taco/LilParrotOdy-Sea",
-    github: "https://github.com/Paco-Taco/LilParrotOdy-Sea",
-    image: "/img/projects/lilParrot.webp",
-    tags: [tags.python],
+    title: 'RetroStep',
+    description: 'Con esta información, los empleados pueden ofrecer a los clientes datos precisos y actualizados sobre los productos. La implementación de esta base de datos específica para empleados es una herramienta esencial para optimizar las operaciones diarias, mejorar la toma de decisiones y proporcionar un servicio excepcional al cliente debido a su eficiencia y acceso rápido.',
+    // link: 'https://github.com/Paco-Taco/RetroStep',
+    github: 'https://github.com/Paco-Taco/RetroStep',
+    image: '/img/projects/retroStep.webp',
+    tags: [tags.php, tags.mysql, tags.jquery]
   },
   {
     title: "Ni pa' la muela - Un blog con buen sazón",
     description:
-      "Un RPG donde explorarás y terminarás con los restos de basura encontrados en el ambiente. Basado en el 14vo Objetivo de Desarrollo Sustentable de las Naciones Unidas ¡Serás sumergido en una aventura única!",
-    link: "https://github.com/Paco-Taco/ni-pa-la-muela-1",
+    "Blog de reseñas de comida en donde los expertos más reconocidos de la zona dan sus opiniones sobre los platillos de los restaurantes más representativos y permitiendo a los usuarios subir sus propias opiniones.",
+    // link: "https://github.com/Paco-Taco/ni-pa-la-muela-1",
     github: "https://github.com/Paco-Taco/ni-pa-la-muela-1",
     image: "/img/projects/nplm.webp",
     tags: [tags.react, tags.mongo, tags.firebase],
   },
+  {
+    title: "Li'l Parrot: OdySea - Un juego donde te diviertes y salvas al mundo",
+    description:
+      "Li'l Parrot: OdySea es un RPG donde explorarás y terminarás con los restos de basura encontrados en el ambiente. Basado en el 14vo Objetivo de Desarrollo Sustentable de las Naciones Unidas ¡Serás sumergido en una aventura única!",
+    // link: "https://github.com/Paco-Taco/LilParrotOdy-Sea",
+    github: "https://github.com/Paco-Taco/LilParrotOdy-Sea",
+    image: "/img/projects/lilParrot.webp",
+    tags: [tags.python],
+  },
+  
 ];
 ---
 
 <div class="flex flex-col gap-y-16">
   {
     projects.map(({ image, title, description, tags, link, github }) => (
-      <article class="flex flex-col space-x-0 group md:flex-row md:space-x-8 space-y-0">
+      <article class="flex flex-col space-x-0 group md:flex-row md:space-x-8 space-y-2">
         <div class="w-full md:w-1/2">
           <div class="relative flex flex-col md:items-center col-span-6 row-span-6 gap-8 transition duration-500 ease-out transform overflow-clip rounded-xl sm:rounded-xl md:hover:shadow-2xl md:hover:border-gray-700/30 md:hover:bg-gray-800/50">
             <img
@@ -91,8 +121,8 @@ const projects = [
             <footer class="flex items-end justify-start mt-4 gap-x-4">
               {github && (
                 <LinkButton href={github}>
-                  <GitHub class="size-6" />
-                  Code
+                  <GitHub class="size-4" />
+                  Código
                 </LinkButton>
               )}
               {link && (
