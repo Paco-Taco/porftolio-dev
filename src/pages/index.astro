@@ -12,6 +12,7 @@ import SocialPill from "../components/SocialPill.astro";
 import Mail from "../components/icons/Mail.astro";
 import GitHub from "../components/icons/GitHub.astro";
 import Code from "../components/icons/Code.astro";
+import ProfileCheck from "../components/icons/ProfileCheck.astro";
 
 // Other
 import { calcXp } from "../utils";
@@ -77,21 +78,30 @@ const tiempoExperiencia = calcXp(fechaInicio);
         </SocialPill>
       </nav>
     </SectionContainer>
+    <div class="space-y-24">
+      <SectionContainer id="experience">
+        <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+          <Briefcase class="size-7" />
+          Experiencia laboral
+        </h2>
+        <Experience />
+      </SectionContainer>
 
-    <SectionContainer id="experience">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-        <Briefcase class="size-7" />
-        Experiencia laboral
-      </h2>
-      <Experience />
-    </SectionContainer>
+      <SectionContainer id="projects">
+        <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+          <Code class="size-7" />
+          Proyectos
+        </h2>
+        <Projects />
+      </SectionContainer>
 
-    <SectionContainer id="projects">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-        <Code class="size-7" />
-        Proyectos
-      </h2>
-      <Projects />
-    </SectionContainer>
+      <SectionContainer id="about-me">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-white"
+        >
+          <ProfileCheck class="size-8" />
+        </h2>
+      </SectionContainer>
+    </div>
   </main>
 </Layout>
