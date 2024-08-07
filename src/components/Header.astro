@@ -1,6 +1,7 @@
 ---
 import HamburgerMenu from "./icons/HamburgerMenu.astro";
 import NavItem from "./NavItem.astro";
+import { mailTo } from "../../public/links";
 ---
 
 <header
@@ -23,7 +24,7 @@ import NavItem from "./NavItem.astro";
         <NavItem href="#experience">Experiencia</NavItem>
         <NavItem href="#projects">Proyectos</NavItem>
         <NavItem href="#about-me">Sobre mí</NavItem>
-        <NavItem href="#contact">Contacto</NavItem>
+        <NavItem href={mailTo}>Contacto</NavItem>
       </div>
     </div>
   </nav>
@@ -39,7 +40,6 @@ import NavItem from "./NavItem.astro";
     .nav-open {
       background-color: transparent;
     }
-
   }
 
   #mobile-menu.block {
@@ -56,35 +56,35 @@ import NavItem from "./NavItem.astro";
     const menuLinks = mobileMenu?.querySelectorAll("a");
 
     const closeMenu = () => {
-      mobileMenu?.classList.add('hidden')
-      mobileMenu?.classList.remove('block')
-      nav?.classList.remove('nav-open')
-      hamburgerButton?.setAttribute('aria-expanded', 'true')
-    }
+      mobileMenu?.classList.add("hidden");
+      mobileMenu?.classList.remove("block");
+      nav?.classList.remove("nav-open");
+      hamburgerButton?.setAttribute("aria-expanded", "true");
+    };
 
     const openMenu = () => {
-      mobileMenu?.classList.remove('hidden')
-      mobileMenu?.classList.add('block')
-      nav?.classList.add('nav-open')
-      hamburgerButton?.setAttribute('aria-expanded', 'true')
-    }
+      mobileMenu?.classList.remove("hidden");
+      mobileMenu?.classList.add("block");
+      nav?.classList.add("nav-open");
+      hamburgerButton?.setAttribute("aria-expanded", "true");
+    };
 
-    hamburgerButton?.addEventListener('click', () => {
-      if (mobileMenu?.classList.contains('hidden')) {
-        openMenu() 
+    hamburgerButton?.addEventListener("click", () => {
+      if (mobileMenu?.classList.contains("hidden")) {
+        openMenu();
       } else {
-        closeMenu()
+        closeMenu();
       }
-    })
+    });
 
     menuLinks?.forEach((link) => {
-      link.addEventListener('click', closeMenu)
-    })
+      link.addEventListener("click", closeMenu);
+    });
 
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       if (window.innerWidth >= 640) {
-        closeMenu()
+        closeMenu();
       }
-    })
+    });
   });
 </script>
