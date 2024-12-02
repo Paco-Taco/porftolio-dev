@@ -21,8 +21,8 @@ import Briefcase from "../components/icons/Briefcase.astro";
 import Projects from "../components/Projects.astro";
 import AboutMe from "../components/AboutMe.astro";
 
-const fechaInicio = "2022-09-01";
-const tiempoExperiencia = calcXp(fechaInicio);
+// const fechaInicio = "2022-09-01";
+// const tiempoExperiencia = calcXp(fechaInicio);
 ---
 
 <Layout
@@ -50,7 +50,7 @@ const tiempoExperiencia = calcXp(fechaInicio);
         </div>
       </h1>
       <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
-        +{tiempoExperiencia} años desarrollando. Estudiante de Ingeniería de Software.
+        <span id="experience-years"></span> años desarrollando. Estudiante de Ingeniería de Software.
         <br />
         De Colima, México 🇲🇽. Especializado en crear aplicaciones
         <span
@@ -107,3 +107,29 @@ const tiempoExperiencia = calcXp(fechaInicio);
     </div>
   </main>
 </Layout>
+<script>
+  function calcXp(initialDate: string) {
+    const currentDate = new Date();
+    const start = new Date(initialDate);
+
+    let xpYears = currentDate.getFullYear() - start.getFullYear();
+    const currentMonth = currentDate.getMonth();
+    const initialMonth = start.getMonth();
+
+    if (
+      currentMonth < initialMonth ||
+      (currentMonth === initialMonth && currentDate.getDate() < start.getDate())
+    ) {
+      xpYears--;
+    }
+
+    return xpYears;
+  }
+
+  const fechaInicio = "2022-09-01";
+  const tiempoExperiencia = calcXp(fechaInicio);
+  const experienceYearsElement = document.getElementById('experience-years');
+  if (experienceYearsElement) {
+    experienceYearsElement.textContent = `+${tiempoExperiencia}`;
+  }
+</script>
