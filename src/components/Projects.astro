@@ -10,6 +10,8 @@ import LinkButton from "./LinkButton.astro";
 import MySql from "./icons/MySql.astro";
 import Php from "./icons/Php.astro";
 import Jquery from "./icons/Jquery.astro";
+import Kotlin from "./icons/Kotlin.astro";
+import Prisma from "./icons/Prisma.astro";
 
 const tags = {
   python: {
@@ -22,6 +24,18 @@ const tags = {
     name: "React",
     class: "bg-blue-200/20 text-white/85",
     icon: React,
+  },
+
+  kotlin: {
+    name: "Kotlin",
+    class: "bg-purple-500/20 text-white/85",
+    icon: Kotlin,
+  },
+
+  prisma: {
+    name: "Prisma",
+    class: 'bg-teal-700/20 text-white/85',
+    icon: Prisma,
   },
 
   mongo: {
@@ -56,6 +70,12 @@ const tags = {
 };
 
 const projects = [
+  {
+    title: "Spike - Tu mascota en las mejores manos",
+    description: "Spike es una aplicación que te permite explorar entre veterinarias y encontrar a la mejor para encargarse de tu mascota según tus necesidades. Con Spike, tu mascota estará en las mejores manos.",
+    image: "/img/projects/spikePics.webp",
+    tags: [tags.kotlin, tags.prisma],
+  },
   {
     title: 'IrisLW - Toda tu información a simple vista',
     description: 'La herramienta indicada para la visualización y análisis de datos empresariales de índole portuaria en tiempo real.',
