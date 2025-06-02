@@ -34,81 +34,80 @@ const tags = {
 
   prisma: {
     name: "Prisma",
-    class: 'bg-teal-700/20 text-white/85',
+    class: "bg-teal-700/20 text-white/85",
     icon: Prisma,
   },
 
   mongo: {
-    name: 'Mongo',
-    class: 'bg-green-500/20 text-white/85',
+    name: "Mongo",
+    class: "bg-green-500/20 text-white/85",
     icon: Mongo,
   },
 
   firebase: {
-    name: 'Firebase',
-    class: 'bg-orange-500/20 text-white/85',
+    name: "Firebase",
+    class: "bg-orange-500/20 text-white/85",
     icon: Firebase,
   },
 
   mysql: {
-    name: 'MySQL',
-    class: 'bg-white/75 text-orange-600/80',
+    name: "MySQL",
+    class: "bg-white/75 text-orange-600/80",
     icon: MySql,
   },
 
   php: {
-    name: 'PHP',
-    class: 'bg-purple-500/30 text-white/85',
+    name: "PHP",
+    class: "bg-purple-500/30 text-white/85",
     icon: Php,
   },
 
   jquery: {
-    name: 'JQuery',
-    class: 'bg-teal-700/20 text-white/85',
+    name: "JQuery",
+    class: "bg-teal-700/20 text-white/85",
     icon: Jquery,
-  }
+  },
 };
 
 const projects = [
   {
-    title: "Spike - Tu mascota en las mejores manos",
-    description: "Spike es una aplicación que te permite explorar entre veterinarias y encontrar a la mejor para encargarse de tu mascota según tus necesidades. Con Spike, tu mascota estará en las mejores manos.",
+    title: "Spike - Your Pet in the Best Hands",
+    description:
+      "Spike is an app that lets you explore veterinary clinics and find the best one for your pet's needs. With Spike, your pet will be in the best hands.",
     image: "/img/projects/spikePics.webp",
     tags: [tags.kotlin, tags.prisma],
   },
   {
-    title: 'IrisLW - Toda tu información a simple vista',
-    description: 'La herramienta indicada para la visualización y análisis de datos empresariales de índole portuaria en tiempo real.',
-    image: '/img/projects/irislw.webp',
-    tags: [tags.react, tags.mongo]
-  },
-  {
-    title: 'RetroStep - No pasa de moda',
-    description: 'Con este sistema, los empleados pueden ofrecer a los clientes datos precisos y actualizados sobre los productos. Una herramienta esencial para optimizar las operaciones diarias, mejorar la toma de decisiones y proporcionar un servicio excepcional por su eficiencia y acceso rápido.',
-    // link: 'https://github.com/Paco-Taco/RetroStep',
-    github: 'https://github.com/Paco-Taco/RetroStep',
-    image: '/img/projects/retroStep.webp',
-    tags: [tags.php, tags.mysql, tags.jquery]
-  },
-  {
-    title: "Ni pa' la muela - Un blog de buen gusto",
+    title: "IrisLW - All Your Info at a Glance",
     description:
-    "Blog de reseñas de comida en donde los expertos más reconocidos de la zona dan sus opiniones sobre los platillos de los restaurantes más representativos y permitiendo a los usuarios subir sus propias opiniones.",
-    // link: "https://github.com/Paco-Taco/ni-pa-la-muela-1",
+      "The right tool for real-time visualization and analysis of business and port-related data.",
+    image: "/img/projects/irislw.webp",
+    tags: [tags.react, tags.mongo],
+  },
+  {
+    title: "RetroStep - Never Out of Style",
+    description:
+      "With this system, employees can provide clients with accurate and up-to-date product information. An essential tool to optimize daily operations, improve decision-making, and deliver exceptional service through efficiency and quick access.",
+    github: "https://github.com/Paco-Taco/RetroStep",
+    image: "/img/projects/retroStep.webp",
+    tags: [tags.php, tags.mysql, tags.jquery],
+  },
+  {
+    title: "Ni pa' la muela - A Blog of Good Taste",
+    description:
+      "A food review blog where the most renowned local experts share their opinions on dishes from the most iconic restaurants, and users can post their own reviews.",
     github: "https://github.com/Paco-Taco/ni-pa-la-muela-1",
     image: "/img/projects/nplm.webp",
     tags: [tags.react, tags.mongo, tags.firebase],
   },
   {
-    title: "Li'l Parrot: OdySea - Un juego donde te diviertes y salvas al mundo",
+    title: "Li'l Parrot: OdySea - A Game Where You Have Fun and Save the World",
     description:
-      "Li'l Parrot: OdySea es un RPG donde explorarás y terminarás con los restos de basura encontrados en el ambiente. Basado en el 14vo Objetivo de Desarrollo Sustentable de las Naciones Unidas, Li'l Parrot: OdySea, es un juego que te encantará.",
-    // link: "https://github.com/Paco-Taco/LilParrotOdy-Sea",
+      "Li'l Parrot: OdySea is an RPG where you explore and clean up environmental waste. Based on the UN's 14th Sustainable Development Goal, this game is as fun as it is meaningful.",
     github: "https://github.com/Paco-Taco/LilParrotOdy-Sea",
     image: "/img/projects/lilParrot.webp",
     tags: [tags.python],
   },
-  
 ];
 ---
 
@@ -120,7 +119,7 @@ const projects = [
           <div class="relative flex flex-col md:items-center col-span-6 row-span-6 gap-8 transition duration-500 ease-out transform overflow-clip rounded-xl sm:rounded-xl md:hover:shadow-2xl md:hover:bg-gray-600/20">
             <img
               src={image}
-              alt={`Captura de pantalla del proyecto ${title}`}
+              alt={`Screenshot of the ${title} project`}
               class="object-cover object-top w-full transition duration-500 h-full md:scale-110 md:group-hover:scale-100"
             />
           </div>
@@ -147,7 +146,7 @@ const projects = [
               {github && (
                 <LinkButton href={github}>
                   <GitHub class="size-4" />
-                  Código
+                  Code
                 </LinkButton>
               )}
               {/* {link && (

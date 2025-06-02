@@ -26,44 +26,46 @@ import AboutMe from "../components/AboutMe.astro";
 ---
 
 <Layout
-  title="Portfolio de Francisco"
-  description="Contrátame para crear tu aplicación en la web. Estudiante de Ingeniería de Software. Especializado en el desarrollo Full-Stack"
+  title="Francisco's Portfolio"
+  description="Hire me to build your web app. Software Engineering student. Specialized in Full-Stack Development."
 >
   <main class="px-4">
     <SectionContainer class="pt-20 md:pt-44 pb-32">
       <img
-        src="/img/yo.webp"
+        src="/img/yohappy.webp"
         alt="Me"
         class="rounded-full size-20 object-cover mb-4"
       />
       <h1
         class="text-white text-balance text-3xl md:text-4xl lg:text-5xl items-center font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
       >
-        ¡Hola! Soy Paco <div class="flex justify-center items-center">
+        Hi! I'm Paco
+        <div class="flex justify-center items-center">
           <a
             href={linkedinUrl}
             target="_blank"
             class="flex justify-center items-center"
           >
-            <Badge>Disponible para trabajar</Badge>
+            <Badge>Available for work</Badge>
           </a>
         </div>
       </h1>
-      <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
-        <span id="experience-years"></span> años desarrollando. Estudiante de Ingeniería de Software.
+      <h2 class="text-xl lg:text-2xl text-wrap max-w-[800px]">
+        <span id="experience-years"></span> years of experience. Software Engineering
+        student.
         <br />
-        De Colima, México 🇲🇽. Especializado en crear aplicaciones
+        From Colima, Mexico 🇲🇽. Specialized in building
         <span
           class="bg-gradient-to-r
-		  from-blue-600
-		  via-green-500
-		  to-indigo-400
-			inline-block text-transparent bg-clip-text"
-          >deslumbrantes.</span
+          from-blue-600
+          via-green-500
+          to-indigo-400
+          inline-block text-transparent bg-clip-text"
+          >stunning applications.</span
         >
       </h2>
 
-      <nav class="flex gap-4 mt-4 flex-col md:flex-row lg:flex-row">
+      <nav class="flex gap-4 mt-8 md:mt-4 flex-col md:flex-row lg:flex-row">
         <SocialPill url={linkedinUrl}>
           <LinkedIn class="size-6" />
           LinkedIn
@@ -78,11 +80,12 @@ import AboutMe from "../components/AboutMe.astro";
         </SocialPill>
       </nav>
     </SectionContainer>
+
     <div class="space-y-24">
       <SectionContainer id="experience">
         <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
           <Briefcase class="size-7" />
-          Experiencia laboral
+          Work Experience
         </h2>
         <Experience />
       </SectionContainer>
@@ -90,23 +93,22 @@ import AboutMe from "../components/AboutMe.astro";
       <SectionContainer id="projects">
         <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
           <Code class="size-7" />
-          Proyectos
+          Projects
         </h2>
         <Projects />
       </SectionContainer>
 
       <SectionContainer id="about-me">
-        <h2
-          class="text-3xl font-semibold mb-6 flex gap-x-3 items-center"
-        >
+        <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
           <ProfileCheck class="size-8" />
-          Sobre mí
+          About Me
         </h2>
         <AboutMe />
       </SectionContainer>
     </div>
   </main>
 </Layout>
+
 <script>
   function calcXp(initialDate: string) {
     const currentDate = new Date();
@@ -128,7 +130,7 @@ import AboutMe from "../components/AboutMe.astro";
 
   const fechaInicio = "2022-09-01";
   const tiempoExperiencia = calcXp(fechaInicio);
-  const experienceYearsElement = document.getElementById('experience-years');
+  const experienceYearsElement = document.getElementById("experience-years");
   if (experienceYearsElement) {
     experienceYearsElement.textContent = `+${tiempoExperiencia}`;
   }
